@@ -18,19 +18,23 @@ class Counter extends Component {
     );
   }
 
+  // **This is former approach for binding 'this' keyword. Use arrow function if possible.
+  /* 
   constructor() {
     super();
     this.handleIncrement = this.handleIncrement.bind(this);
   }
+  */
 
-  handleIncrement() {
-    console.log("Increment clicked!!", this);
-  }
+  handleIncrement = (product) => {
+    console.log(product);
+    this.setState({ count: this.state.count + 1 });
+  };
 
-  /*
-  styles = {
-    fontSize: 10,
-    fontWeight: "bold",
+  // **This one is a wrapper method for passing parameters into event handling. This needs to be done by passing the same arrow function into the event itself as below.
+  /*  
+  doHandleIncrement = () => {
+    this.handleIncrement({ id: 1 });
   };
   */
 
@@ -40,7 +44,7 @@ class Counter extends Component {
         {/* <img src={this.state.imgUrl} alt='random pic' /> */}
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
-          onClick={this.handleIncrement}
+          onClick={() => this.handleIncrement(product)}
           className='btn btn-secondary btn-sm'
         >
           Increment
