@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = {
     count: 0,
-    tags: ["tag1", "tag2", "tag3"],
+    // tags: ["tag1", "tag2", "tag3"],
     // imgUrl: 'https://picsum.photos/200',
   };
 
@@ -31,7 +31,8 @@ class Counter extends Component {
     this.setState({ count: this.state.count + 1 });
   };
 
-  // **This one is a wrapper method for passing parameters into event handling. This needs to be done by passing the same arrow function into the event itself as below.
+  //  !This one below is a wrapper method for passing parameters into event handling.
+  //  **This needs to be done by passing the same arrow function into the event itself as below.
   /*  
   doHandleIncrement = () => {
     this.handleIncrement({ id: 1 });
@@ -44,13 +45,13 @@ class Counter extends Component {
         {/* <img src={this.state.imgUrl} alt='random pic' /> */}
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
-          onClick={() => this.handleIncrement(product)}
+          onClick={() => this.handleIncrement()}
           className='btn btn-secondary btn-sm'
         >
           Increment
         </button>
-        {this.renderTags()}
-        {this.state.tags.length === 0 && "Please create a new tag!"}
+        {/* {this.renderTags()}
+        {this.state.tags.length === 0 && "Please create a new tag!"} */}
       </div>
     );
   }
