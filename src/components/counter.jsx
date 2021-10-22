@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 0,
+    value: this.props.value,
     // tags: ["tag1", "tag2", "tag3"],
     // imgUrl: 'https://picsum.photos/200',
   };
@@ -28,7 +28,7 @@ class Counter extends Component {
 
   handleIncrement = (product) => {
     console.log(product);
-    this.setState({ count: this.state.count + 1 });
+    this.setState({ value: this.state.value + 1 });
   };
 
   //  !This one below is a wrapper method for passing parameters into event handling.
@@ -39,10 +39,14 @@ class Counter extends Component {
   };
   */
 
+  // ** In case like 'dialog box' we need to use children props.
+  // **In this case direct rendering is fine with passing attribute as a key inside counter!
+
   render() {
     return (
       <div>
         {/* <img src={this.state.imgUrl} alt='random pic' /> */}
+        <h4>{this.props.id}</h4>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
           onClick={() => this.handleIncrement()}
@@ -58,12 +62,12 @@ class Counter extends Component {
 
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
-    classes += this.state.count === 0 ? "warning" : "primary";
+    classes += this.state.value === 0 ? "warning" : "primary";
     return classes;
   }
 
   formatCount() {
-    const { count } = this.state;
+    const { value: count } = this.state;
     return count === 0 ? "Zero" : count;
   }
 }

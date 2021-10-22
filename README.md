@@ -1,3 +1,5 @@
+This project is a tutorial for React from YouTube video React JS - React Tutorial for Beginners by Programming With Mosh [https://www.youtube.com/watch?v=Ke90Tje7VS0&t=4600s]
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
